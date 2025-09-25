@@ -30,7 +30,7 @@
             </VerticalStackLayout>
         </Frame>
 
-        <Button Text="Calcular1" Command="{Binding CalcularCommand}"
+        <Button Text="Calcular" Command="{Binding CalcularCommand}"
                 BackgroundColor="#F48FB1" TextColor="White" FontAttributes="Bold" CornerRadius="10"/>
 
         <Button Text="Limpiar" Command="{Binding LimpiarCommand}"
