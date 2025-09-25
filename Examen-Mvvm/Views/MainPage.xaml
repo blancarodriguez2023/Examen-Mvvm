@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewModels="clr-namespace:Examen_Mvvm.ViewModels"
+             x:Class="Examen_Mvvm.Views.MainPage"
+             BackgroundColor="#FFF0F5">
+
+
+    <ContentPage.BindingContext>
+        <viewModels:DescuentoViewModel />
+    </ContentPage.BindingContext>
+
+    <VerticalStackLayout Padding="30" Spacing="15">
+
+        <Label Text="Calculadora de Descuento" FontSize="26" HorizontalOptions="Center" TextColor="#C2185B"/>
+
+        <Frame BackgroundColor="#E8F5E9" CornerRadius="10" Padding="10">
+            
+            <VerticalStackLayout Spacing="10">
+
+                <Label Text="Pan" FontAttributes="Bold" TextColor="#4E342E"/>
+                <Entry Placeholder="Precio Pan" Keyboard="Numeric" Text="{Binding PrecioPan}" BackgroundColor="#FCE4EC"/>
+
+                <Label Text="Refresco" FontAttributes="Bold" TextColor="#4E342E"/>
+                <Entry Placeholder="Precio Refresco" Keyboard="Numeric" Text="{Binding PrecioRefresco}" BackgroundColor="#FCE4EC"/>
+
+                <Label Text="Spaguethis" FontAttributes="Bold" TextColor="#4E342E"/>
+                <Entry Placeholder="Precio Spaguethis" Keyboard="Numeric" Text="{Binding PrecioSpaguethis}" BackgroundColor="#FCE4EC"/>
+
+            </VerticalStackLayout>
+        </Frame>
+
+        <Button Text="Calcular" Command="{Binding CalcularCommand}"
+                BackgroundColor="#F48FB1" TextColor="White" FontAttributes="Bold" CornerRadius="10"/>
+
+        <Button Text="Limpiar" Command="{Binding LimpiarCommand}"
+                BackgroundColor="#AED581" TextColor="White" FontAttributes="Bold" CornerRadius="10"/>
+
+        <Frame BackgroundColor="#F3E5F5" CornerRadius="10" Padding="10">
+            <VerticalStackLayout Spacing="10">
+                <Label Text="{Binding Subtotal, StringFormat='Subtotal: L{0:F2}'}" FontSize="18" TextColor="#6A1B9A"/>
+                <Label Text="{Binding Descuento, StringFormat='Descuento: L{0:F2}'}" FontSize="18" TextColor="#8E24AA"/>
+                <Label Text="{Binding Total, StringFormat='Total a pagar: L{0:F2}'}" FontSize="18" TextColor="#4A148C"/>
+            </VerticalStackLayout>
+        </Frame>
+
+    </VerticalStackLayout>
+</ContentPage>
